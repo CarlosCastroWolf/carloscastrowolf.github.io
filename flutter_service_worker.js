@@ -15,7 +15,7 @@ const RESOURCES = {
 "assets/assets/fonts/SourceSansPro-SemiBold.ttf": "83476a890be79f84e97b792c9c40d743",
 "assets/FontManifest.json": "82ac34a25d6a675345cb5dca6507dc44",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"assets/LICENSE": "c9aa584eee5d7354cb3cca7b21de446e",
+"assets/LICENSE": "07f9af542ad7a9d0d1ebd0f9b50e1b62",
 "assets/packages/community_material_icon/fonts/materialdesignicons-webfont.ttf": "baded94134f273450a473a4962111324",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
@@ -23,7 +23,7 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "index.html": "6cf4ba39c467f202234f4c8d8ea38c47",
 "/": "6cf4ba39c467f202234f4c8d8ea38c47",
-"main.dart.js": "eb624bcd780c2d7445f38b75e2aee29b",
+"main.dart.js": "ae66d31097d177be46e29e23b7a9a3b1",
 "manifest.json": "be6d640eb37af5bf2dcf15893e2084b2"
 };
 
