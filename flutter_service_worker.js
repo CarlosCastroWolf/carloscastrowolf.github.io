@@ -15,7 +15,7 @@ const RESOURCES = {
 "assets/assets/fonts/SourceSansPro-SemiBold.ttf": "83476a890be79f84e97b792c9c40d743",
 "assets/FontManifest.json": "82ac34a25d6a675345cb5dca6507dc44",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"assets/LICENSE": "07f9af542ad7a9d0d1ebd0f9b50e1b62",
+"assets/LICENSE": "12ebd86e168fe58fd76c0803d6037ed1",
 "assets/packages/community_material_icon/fonts/materialdesignicons-webfont.ttf": "baded94134f273450a473a4962111324",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
@@ -23,15 +23,15 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "index.html": "6cf4ba39c467f202234f4c8d8ea38c47",
 "/": "6cf4ba39c467f202234f4c8d8ea38c47",
-"main.dart.js": "9af13f9de7db09789cc7fb181e5af981",
+"main.dart.js": "06c77da79fc251c9b53e5b6fce1cf28e",
 "manifest.json": "be6d640eb37af5bf2dcf15893e2084b2"
 };
 
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/",
-"main.dart.js",
+  "main.dart.js",
+"/",
 "index.html",
 "assets/LICENSE",
 "assets/AssetManifest.json",
@@ -41,8 +41,7 @@ const CORE = [
 self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
-      // Provide a no-cache param to ensure the latest version is downloaded.
-      return cache.addAll(CORE.map((value) => new Request(value, {'cache': 'no-cache'})));
+      return cache.addAll(CORE);
     })
   );
 });
@@ -61,7 +60,6 @@ self.addEventListener("activate", function(event) {
       // When there is no prior manifest, clear the entire cache.
       if (!manifest) {
         await caches.delete(CACHE_NAME);
-        contentCache = await caches.open(CACHE_NAME);
         for (var request of await tempCache.keys()) {
           var response = await tempCache.match(request);
           await contentCache.put(request, response);
@@ -111,10 +109,6 @@ self.addEventListener("activate", function(event) {
 self.addEventListener("fetch", (event) => {
   var origin = self.location.origin;
   var key = event.request.url.substring(origin.length + 1);
-  // Redirect URLs to the index.html
-  if (event.request.url == origin || event.request.url.startsWith(origin + '/#')) {
-    key = '/';
-  }
   // If the URL is not the the RESOURCE list, skip the cache.
   if (!RESOURCES[key]) {
     return event.respondWith(fetch(event.request));
@@ -123,10 +117,8 @@ self.addEventListener("fetch", (event) => {
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache. Ensure the resources are not cached
-        // by the browser for longer than the service worker expects.
-        var modifiedRequest = new Request(event.request, {'cache': 'no-cache'});
-        return response || fetch(modifiedRequest).then((response) => {
+        // lazily populate the cache.
+        return response || fetch(event.request).then((response) => {
           cache.put(event.request, response.clone());
           return response;
         });
@@ -135,35 +127,3 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-self.addEventListener('message', (event) => {
-  // SkipWaiting can be used to immediately activate a waiting service worker.
-  // This will also require a page refresh triggered by the main worker.
-  if (event.message == 'skipWaiting') {
-    return self.skipWaiting();
-  }
-
-  if (event.message = 'downloadOffline') {
-    downloadOffline();
-  }
-});
-
-// Download offline will check the RESOURCES for all files not in the cache
-// and populate them.
-async function downloadOffline() {
-  var resources = [];
-  var contentCache = await caches.open(CACHE_NAME);
-  var currentContent = {};
-  for (var request of await contentCache.keys()) {
-    var key = request.url.substring(origin.length + 1);
-    if (key == "") {
-      key = "/";
-    }
-    currentContent[key] = true;
-  }
-  for (var resourceKey in Object.keys(RESOURCES)) {
-    if (!currentContent[resourceKey]) {
-      resources.add(resourceKey);
-    }
-  }
-  return Cache.addAll(resources);
-}
