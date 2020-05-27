@@ -3,19 +3,28 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "5bee3ab9a0dd472c43f67c2bea58f179",
+  "assets/AssetManifest.json": "1d232fa0692ef816aba2053a2b2d4bb7",
 "assets/assets/conexaointernet.png": "cb3a2135086b0296c782a4e37daf5053",
 "assets/assets/erro.png": "88566b45700d0452b861fdad1e07dcbc",
 "assets/assets/fonts/AvesIcons.ttf": "f42144211dbba1811d2c4a1d6b03059c",
+"assets/assets/fonts/Poppins-Black.ttf": "42cf9f0820d16f3ac2c26a7710ce70f2",
+"assets/assets/fonts/Poppins-Bold.ttf": "c23534acbeddbaadfd0ab2d2bbfdfc84",
+"assets/assets/fonts/Poppins-ExtraBold.ttf": "6b78c7ec468eb0e13c6c5c4c39203986",
+"assets/assets/fonts/Poppins-ExtraLight.ttf": "8ea2657f263b6b2a404bfb57f4160013",
+"assets/assets/fonts/Poppins-Light.ttf": "2a47a29ceb33c966c8d79f8d5a5ea448",
+"assets/assets/fonts/Poppins-Medium.ttf": "ba95810b56f476990ca71d15139d5111",
+"assets/assets/fonts/Poppins-Regular.ttf": "41e8dead03fb979ecc23b8dfb0fef627",
+"assets/assets/fonts/Poppins-SemiBold.ttf": "342ba3d8ac29ac8c38d7cef8efbf2dc9",
+"assets/assets/fonts/Poppins-Thin.ttf": "c0fafa8397437c95848724aed686d63b",
 "assets/assets/fonts/SourceSansPro-Black.ttf": "9ded577f93b24331f4faadfc5f834ae6",
 "assets/assets/fonts/SourceSansPro-Bold.ttf": "8669b8706bbbdd1482e2fccc4ed96850",
 "assets/assets/fonts/SourceSansPro-ExtraLight.ttf": "23a4c2deef3a0cc9b40b429ad7320a18",
 "assets/assets/fonts/SourceSansPro-Light.ttf": "81cd217e4a8160a930c6d5fb8d1e8e82",
 "assets/assets/fonts/SourceSansPro-Regular.ttf": "c1678b46f7dd3f50ceac94ed4e0ad01a",
 "assets/assets/fonts/SourceSansPro-SemiBold.ttf": "83476a890be79f84e97b792c9c40d743",
-"assets/FontManifest.json": "82ac34a25d6a675345cb5dca6507dc44",
+"assets/FontManifest.json": "900b7e02bdf909d3cc1700c5b8c55fc6",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"assets/LICENSE": "07f9af542ad7a9d0d1ebd0f9b50e1b62",
+"assets/LICENSE": "455baf95bc9766a2f35262588aa9c6ef",
 "assets/packages/community_material_icon/fonts/materialdesignicons-webfont.ttf": "baded94134f273450a473a4962111324",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
@@ -23,7 +32,7 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "index.html": "6cf4ba39c467f202234f4c8d8ea38c47",
 "/": "6cf4ba39c467f202234f4c8d8ea38c47",
-"main.dart.js": "814148397beaa7f6e032fb186b9e5923",
+"main.dart.js": "beb76b7a7b2effd7cd3bb45b3bc042f1",
 "manifest.json": "be6d640eb37af5bf2dcf15893e2084b2"
 };
 
